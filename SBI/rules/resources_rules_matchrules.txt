@@ -1,0 +1,31 @@
+
+RULENAME="cm_sbi1",REGEXP="\b(%reINF)\b",LOCATION="NA",NORM="INF"
+RULENAME="cm_sbi2",REGEXP="\b(%reINFdesc)\W\w*\W?(%reINF)\b",LOCATION="NA",NORM="INF:%normINFdesc(group(1))"
+RULENAME="cm_sbi3",REGEXP="\b(%reINFdesc)\W\w*\W?(%reINFANAT) (%reINF)\b",LOCATION="NA",NORM="INF:%normINFdesc(group(1))_group(3)"
+RULENAME="cm_sbi4",REGEXP="\b(%reINFdesc)\W\w*\W?(%reINF) at( %reINFANAT)\b",LOCATION="NA",NORM="INF:%normINFdesc(group(1))_group(5)"
+//Differential diagnosis
+RULENAME="cm_sbi5",REGEXP="(either|versus)\W(%reINF)\b",LOCATION="NA",NORM="INF:POSSIBLE"
+RULENAME="cm_sbi6",REGEXP="(either|versus)\W(%reINFdesc)\W\w*\W?(%reINF)\b",LOCATION="NA",NORM="INF:POSSIBLE_%normINFdesc(group(2))"
+RULENAME="cm_sbi7",REGEXP="(either|versus)\W(%reINFdesc)\W\w*\W?(%reINFANAT) (%reINF)\b",LOCATION="NA",NORM="INF:POSSIBLE_%normINFdesc(group(2))_group(4)"
+RULENAME="cm_sbi8",REGEXP="(either|versus)\W(%reINFdesc)\W\w*\W?(%reINF) at( %reINFANAT)\b",LOCATION="NA",NORM="INF:POSSIBLE_%normINFdesc(group(2))_group(6)"
+//Differential diagnosis
+RULENAME="cm_sbi9",REGEXP="\beither\b.{0,30}\Wor\W(%reINF)\b",LOCATION="NA",NORM="INF:POSSIBLE"
+RULENAME="cm_sbi10",REGEXP="\beither\b.{0,30}\Wor\W(%reINFdesc)\W\w*\W?(%reINF)\b",LOCATION="NA",NORM="INF:POSSIBLE_%normINFdesc(group(2))"
+RULENAME="cm_sbi11",REGEXP="\beither\b.{0,30}\Wor\W(%reINFdesc)\W\w*\W?(%reINFANAT) (%reINF)\b",LOCATION="NA",NORM="INF:POSSIBLE_%normINFdesc(group(2))_group(4)"
+RULENAME="cm_sbi12",REGEXP="\beither\b.{0,30}\Wor\W(%reINFdesc)\W\w*\W?(%reINF) at( %reINFANAT)\b",LOCATION="NA",NORM="INF:POSSIBLE_%normINFdesc(group(2))_group(6)"
+
+//WHITE MATTER
+RULENAME="cm_wmd1",REGEXP="\b(leukoaraiosis|microangiopath\w+)\b",LOCATION="NA",NORM="WMD_LEUK"
+RULENAME="cm_wmd2",REGEXP="\b(signal|hyperinten\w+|hypodens\w+)\b.*\b(white matter)\b",LOCATION="NA",NORM="WMD_WHITE"
+RULENAME="cm_wmd3",REGEXP="\b(white matter)\b.*(signal|hyperinten\w+|hypodens\w+)\b",LOCATION="NA",NORM="WMD_WHITE"
+RULENAME="cm_wmd4",REGEXP="\b(%reWMDANAT)\W(diseases?|lesions?|changes?|ischemic\W?|decompression\W?|leukemic\W?|degenerative\W?)+\b",LOCATION="NA",NORM="WMD"
+RULENAME="cm_wmd5",REGEXP="\b(ischemic\W?|decompression\W?|leukemic\W?|degenerative\W?)+(diseases?|lesions?|changes?)\b",LOCATION="NA",NORM="WMD"
+//WHITE MATTER GRADING
+RULENAME="cm_wmd6",REGEXP="\b(%reWMDGD)\b",LOCATION="NA",NORM="%normWMDGD(group(1))"
+//RULENAME="cm_wmd7",REGEXP="\b(%reWMDGD)\b",LOCATION="NA",NORM="WMD_WHITE:%normWMDGD(group(1))"
+//RULENAME="cm_wmd8",REGEXP="\b(%reWMDGD)\b",LOCATION="NA",NORM="WMD:%normWMDGD(group(1))"
+
+//REMOVE
+RULENAME="cm_remove1",REGEXP="\b(degenerative changes?).*\bjoints?\b",LOCATION="NA",NORM="REMOVE"
+RULENAME="cm_remove2",REGEXP="\bjoints?.*(degenerative changes?)\b",LOCATION="NA",NORM="REMOVE"
+RULENAME="cm_remove3",REGEXP="\bcarotid(\S+\s+){0,5} infarct\b",LOCATION="NA",NORM="REMOVE"

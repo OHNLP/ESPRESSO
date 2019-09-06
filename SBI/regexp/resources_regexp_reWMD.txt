@@ -1,0 +1,5 @@
+leukoaraiosis
+white matter
+(small.?vessel|microvascular) (diseases?|changes?)
+
+microvascular)(ischemic|leukemic|degenerative|\/| )+(disease|lesion|changes?)?\b",LOCATION="NA",NORM="WMD_group(1)"

@@ -1,0 +1,9 @@
+./rules/resources_rules_matchrules.txt
+./regexp/resources_regexp_reINF.txt
+./regexp/resources_regexp_reINFANAT.txt
+./regexp/resources_regexp_reWMDANAT.txt
+./regexp/resources_regexp_reINFdesc.txt
+./regexp/resources_regexp_reWMDGD.txt
+./norm/resources_norm_normINFdesc.txt
+./norm/resources_norm_normWMDGD.txt
+./used_resources.txt

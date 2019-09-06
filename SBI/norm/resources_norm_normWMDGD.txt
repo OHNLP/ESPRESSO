@@ -1,0 +1,17 @@
+mildly	MILD
+mild	MILD
+few	MILD
+scattered	MILD
+low	MILD
+minimal	MILD
+several	MODERATE
+multiple	MODERATE
+moderate	MODERATE
+extensive	SEVERE
+diffuse	SEVERE
+extensive	SEVERE
+innumerable	SEVERE
+advanced	SEVERE
+numerous	SEVERE
+heavy	SEVERE
+severe	SEVERE
