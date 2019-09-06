@@ -1,9 +1,6 @@
 # ESPRESSO
 
-  ESPRESSO NLP System
-  Process neuroimaging reports to classify a patient's SBI and WMD status
-  @author Sunyang Fu, Hongfang liu
- 
+  ESPRESSO NLP System for processing neuroimaging reports to classify a patient's SBI and WMD status
 
   CONFIGURATION:
   INPUT_DIR: full directory path of input folder 
