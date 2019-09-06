@@ -10,7 +10,7 @@
 
   INPUT:
   Input file: patient level .txt file
-  Input file preprocessing: replace all '/n' to '.'
+  Input file preprocessing: replace all '/n' to '. '
 
   RUN:
   command line:
