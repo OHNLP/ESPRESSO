@@ -1,5 +1,6 @@
 territorial
 lacunar
+lunar
 cerebellar
 cortical
 frontal
@@ -10,4 +11,15 @@ right frontal lobe
 embolic
 left basal ganglia lacunar
 basal ganglia lacunar
+basal ganglia
 left caudate and left putamen lacunar
+left parietal lobe
+brachium pontis
+right frontal periventricular
+lateral right thalamus
+frontal parasagittal
+lentiform nucleus
+basilar ganglia
+thalamic region
+occipital lobe.+
+cerebral hemispheres

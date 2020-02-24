@@ -1,0 +1,17 @@
+to be considered
+differential
+either (\S+\s+){0,30}or
+versus
+could represent.+ (\S+\s+){0,30}or
+may bea
+could be present
+could represent.+
+could bea
+no evidence of
+limit.+ evaluation for
+not (\S+\s+){0,30}excluded
+less likely
+assessment of (\S+\s+){0,30}or
+without (\S+\s+){0,30}or
+fail.+ to
+failed to

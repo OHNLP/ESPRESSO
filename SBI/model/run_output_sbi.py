@@ -32,6 +32,21 @@ def read_file_list(indir, deli):
 			opt_notes += [row]
 	return opt_notes
 
+
+
+def get_remove(l, deli):
+	r = {}
+	for d in l:
+		fname = d.split(deli)[-1]
+		SBI_STATUS, WMD_STATUS, WMD_GD = '','',''
+		ann_list = read_file_list(d,'\t')
+		for row in ann_list:
+			key = fname+row[-2]
+			norm = row[9]
+			if 'REMOVE' in norm:
+				r[key] = 1
+	return r
+		
 def run_eval_sbi(indir, outdir, sys):
 	if sys == '0':
 		deli = '/'
@@ -41,6 +56,9 @@ def run_eval_sbi(indir, outdir, sys):
 	dir_list = indir+deli+'*.ann'
 	l = glob.glob(dir_list)
 	output = []
+	rm = get_remove(l, deli)
+
+	# print (rm)
 
 	with open(outdir+deli+'patient_level.csv', 'w') as csvfile:
 		spamwriter = csv.writer(csvfile, delimiter='|')
@@ -53,8 +71,10 @@ def run_eval_sbi(indir, outdir, sys):
 				status = row[7]
 				exp = row[8]
 				norm = row[9]
-				if ('Positive' in certainty or 'Possible' in certainty) and 'Present' in status and 'Patient' in exp:
-					if 'NONACUTE' in norm or 'INF' in norm:
+				sent = row[-1]
+				key = fname+row[-2]
+				if ('Positive' in certainty) and 'Present' in status and 'Patient' in exp:
+					if ('NONACUTE' in norm or 'INF_GENERAL' in norm or 'ACUTE' in norm) and key not in rm:
 						SBI_STATUS = 'SBI_FOUND'
 					if 'WMD_WHITE' in norm or 'WMD_LEUK' in norm or 'WMD' in norm:
 						WMD_STATUS = 'WMD_FOUND'
