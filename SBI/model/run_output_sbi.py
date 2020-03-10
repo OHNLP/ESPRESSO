@@ -32,7 +32,14 @@ def read_file_list(indir, deli):
 			opt_notes += [row]
 	return opt_notes
 
-
+def apply_exclusion_wmd(sent):
+	elist = ['lacunar', 'gliotic type signal', 'edematous', 'probably', 'may represent', 'multiple sclerosis', 'cervical spine', 'demyelinating plaque', 'joints', 'indeterminate', 'could represent', 'spine']
+	for k in elist:
+		k = ' '+k+' '
+		sent = ' '+sent.lower().replace('.', ' ')
+		if k in sent:
+			return True
+	return False
 
 def get_remove(l, deli):
 	r = {}
@@ -77,7 +84,9 @@ def run_eval_sbi(indir, outdir, sys):
 					if ('NONACUTE' in norm or 'INF_GENERAL' in norm or 'ACUTE' in norm) and key not in rm:
 						SBI_STATUS = 'SBI_FOUND'
 					if 'WMD_WHITE' in norm or 'WMD_LEUK' in norm or 'WMD' in norm:
-						WMD_STATUS = 'WMD_FOUND'
+						exl = apply_exclusion_wmd(sent)
+						if not exl:
+							WMD_STATUS = 'WMD_FOUND'
 			for row in ann_list:
 				if WMD_STATUS == 'WMD_FOUND':
 					if 'SEVERE' in norm:
@@ -87,7 +96,6 @@ def run_eval_sbi(indir, outdir, sys):
 					if 'MILD' in norm:
 						WMD_GD = 'MILD'
 			spamwriter.writerow([fname, SBI_STATUS, WMD_STATUS, WMD_GD])
-
 
 def main():
 	args = sys.argv[1:]

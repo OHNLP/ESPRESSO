@@ -20,12 +20,18 @@ RULENAME="cm_sbi12",REGEXP="\beither\b.{0,30}\Wor\W(%reINFdesc)\W\w*\W?(%reINF) 
 RULENAME="cm_wmd1",REGEXP="\b(leukoaraiosis|microangiopath\w+)\b",LOCATION="NA",NORM="WMD_LEUK"
 RULENAME="cm_wmd2",REGEXP="\b(signal|hyperinten\w+|hypodens\w+)\b.*\b(white matter)\b",LOCATION="NA",NORM="WMD_WHITE"
 RULENAME="cm_wmd3",REGEXP="\b(white matter)\b.*(signal|hyperinten\w+|hypodens\w+)\b",LOCATION="NA",NORM="WMD_WHITE"
-RULENAME="cm_wmd4",REGEXP="\b(%reWMDANAT)\W(diseases?|lesions?|changes?|ischemic\W?|decompression\W?|leukemic\W?|degenerative\W?)+\b",LOCATION="NA",NORM="WMD"
+RULENAME="cm_wmd4",REGEXP="\b(%reWMDANAT)\W(diseases?|lesions?|changes?|ischemic|ischemia\W?|decompression\W?|leukemic\W?|degenerative\W?)+\b",LOCATION="NA",NORM="WMD"
 RULENAME="cm_wmd5",REGEXP="\b(ischemic\W?|decompression\W?|leukemic\W?|degenerative\W?)+(diseases?|lesions?|changes?)\b",LOCATION="NA",NORM="WMD"
+RULENAME="cm_wmd9",REGEXP="\b(white matter disease)\b",LOCATION="NA",NORM="WMD_WHITE"
+RULENAME="cm_wmd10",REGEXP="\b(scattered (\S+\s+){0,10}hyperintensities (\S+\s+){0,10}nonspecific)\b",LOCATION="NA",NORM="WMD_WHITE"
+RULENAME="cm_wmd11",REGEXP="\b(white matter (\S+\s+){0,10} changes)\b",LOCATION="NA",NORM="WMD_WHITE"
+RULENAME="cm_wmd12",REGEXP="\b(nonspecific (\S+\s+){0,6}white matter)\b",LOCATION="NA",NORM="WMD_WHITE"
+
 //WHITE MATTER GRADING
 RULENAME="cm_wmd6",REGEXP="\b(%reWMDGD)\b",LOCATION="NA",NORM="%normWMDGD(group(1))"
 //RULENAME="cm_wmd7",REGEXP="\b(%reWMDGD)\b",LOCATION="NA",NORM="WMD_WHITE:%normWMDGD(group(1))"
 //RULENAME="cm_wmd8",REGEXP="\b(%reWMDGD)\b",LOCATION="NA",NORM="WMD:%normWMDGD(group(1))"
+
 
 //REMOVE
 RULENAME="cm_remove1",REGEXP="\b(degenerative changes?).*\bjoints?\b",LOCATION="NA",NORM="REMOVE"
