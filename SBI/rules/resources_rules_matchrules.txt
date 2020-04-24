@@ -1,31 +1,71 @@
+//Indeterminate
 
-RULENAME="cm_sbi1",REGEXP="\b(%reINF)\b",LOCATION="NA",NORM="INF"
-RULENAME="cm_sbi2",REGEXP="\b(%reINFdesc)\W\w*\W?(%reINF)\b",LOCATION="NA",NORM="INF:%normINFdesc(group(1))"
-RULENAME="cm_sbi3",REGEXP="\b(%reINFdesc)\W\w*\W?(%reINFANAT) (%reINF)\b",LOCATION="NA",NORM="INF:%normINFdesc(group(1))_group(3)"
-RULENAME="cm_sbi4",REGEXP="\b(%reINFdesc)\W\w*\W?(%reINF) at( %reINFANAT)\b",LOCATION="NA",NORM="INF:%normINFdesc(group(1))_group(5)"
-RULENAME="cm_sbi13",REGEXP="\b(%reINFANAT) (\S+\s+){0,10}(%reINF)\b",LOCATION="NA",NORM="INF_GENERAL"
-RULENAME="cm_sbi14",REGEXP="\b(%reINF) (\S+\s+){0,10}(%reINFANAT)\b",LOCATION="NA",NORM="INF_GENERAL"
+RULENAME="cm_sbi1",REGEXP="\b(hyperintensity|hyperintense|intensity|density|attenuation|abnormally|increased signal)\W(\S+\s+){0,8}(%reINFANAT)\W(\S+\s+){0,8}(encephalomalacia)\b",LOCATION="NA",NORM="INF_INDETERMINATE"
+RULENAME="cm_sbi2",REGEXP="\b(low|low-|decreased|mild)\W(density|attenuation|abnormally)\W(\S+\s+){0,6}(cm|\d-cm|mm|\d-cm)\W(\S+\s+){0,12}encephalomalacia\b",LOCATION="NA",NORM="INF_GENERAL"
+RULENAME="cm_sbi3",REGEXP="\b(low|low-|decreased|mild)\W(density|attenuation|abnormally)\W(\S+\s+){0,6}(cm|\d-cm|mm|\d-cm)\W(\S+\s+){0,12}(%reINFANAT)\b",LOCATION="NA",NORM="INF_GENERAL"
+
+//Positive general
+RULENAME="cm_sbi4",REGEXP="\b(low|decreased)\W(density|attenuation)\W(\S+\s+){0,15}(%reINF)\b",LOCATION="NA",NORM="INF_GENERAL"
+RULENAME="cm_sbi5",REGEXP="\b(%reINFANAT) (\S+\s+){0,5}(%reINF)\b",LOCATION="NA",NORM="INF_GENERAL"
+RULENAME="cm_sbi6",REGEXP="\b(%reINF) (\S+\s+){0,5}(%reINFANAT)\b",LOCATION="NA",NORM="INF_GENERAL"
+RULENAME="cm_sbi7",REGEXP="\b(%reINF)\b",LOCATION="NA",NORM="INF"
+
+//Positive specific
+RULENAME="cm_sbi8",REGEXP="\b(%reINFdesc)\W\w*\W?(%reINF)\b",LOCATION="NA",NORM="INF:%normINFdesc(group(1))"
+RULENAME="cm_sbi9",REGEXP="\b(%reINFdesc)\W\w*\W?(%reINFANAT) (%reINF)\b",LOCATION="NA",NORM="INF:%normINFdesc(group(1))_group(3)"
+RULENAME="cm_sbi10",REGEXP="\b(%reINFdesc)\W\w*\W?(%reINF) at\W\w*\W?(%reINFANAT)\b",LOCATION="NA",NORM="INF:%normINFdesc(group(1))_group(5)"
+
+RULENAME="cm_sbi11",REGEXP="\b(%reINFdesc)\W(\S+\s+){0,8}ischemic changes\W(\S+\s+){0,8}(%reINFANAT)\b",LOCATION="NA",NORM="INF:%normINFdesc(group(1))"
+RULENAME="cm_sbi12",REGEXP="\b(consistent with (%reINF) of indeterminate age)\b",LOCATION="NA",NORM="INF_GENERAL"
+
+//Indeterminate 
+RULENAME="cm_sbi13",REGEXP="\b(foci\W\w*\W?(% reDIFFU))\b",LOCATION="NA",NORM="INF_INDETERMINATE"
+RULENAME="cm_sbi22",REGEXP="\b(multifocal areas|multiple areas)\W\w*\W?hypoattenuation\W\w*\W?mass effect\W\w*\W?(%reINFANAT)\b",LOCATION="NA",NORM="INF_INDETERMINATE"
+RULENAME="cm_sbi23",REGEXP="\b(%reDIFFU)\W\w*\W?(%reINFANAT)\W\w*\W?lesions\b",LOCATION="NA",NORM="INF_INDETERMINATE"
+
+
 //Differential diagnosis
-RULENAME="cm_sbi5",REGEXP="(either|versus)\W(%reINF)\b",LOCATION="NA",NORM="INF:POSSIBLE"
-RULENAME="cm_sbi6",REGEXP="(either|versus)\W(%reINFdesc)\W\w*\W?(%reINF)\b",LOCATION="NA",NORM="INF:POSSIBLE_%normINFdesc(group(2))"
-RULENAME="cm_sbi7",REGEXP="(either|versus)\W(%reINFdesc)\W\w*\W?(%reINFANAT) (%reINF)\b",LOCATION="NA",NORM="INF:POSSIBLE_%normINFdesc(group(2))_group(4)"
-RULENAME="cm_sbi8",REGEXP="(either|versus)\W(%reINFdesc)\W\w*\W?(%reINF) at( %reINFANAT)\b",LOCATION="NA",NORM="INF:POSSIBLE_%normINFdesc(group(2))_group(6)"
+RULENAME="cm_sbi14",REGEXP="(either|versus)\W(%reINF)\b",LOCATION="NA",NORM="INF:POSSIBLE"
+RULENAME="cm_sbi15",REGEXP="(either|versus)\W(%reINFdesc)\W\w*\W?(%reINF)\b",LOCATION="NA",NORM="INF:POSSIBLE_%normINFdesc(group(2))"
+RULENAME="cm_sbi16",REGEXP="(either|versus)\W(%reINFdesc)\W\w*\W?(%reINFANAT) (%reINF)\b",LOCATION="NA",NORM="INF:POSSIBLE_%normINFdesc(group(2))_group(4)"
+RULENAME="cm_sbi17",REGEXP="(either|versus)\W(%reINFdesc)\W\w*\W?(%reINF) at( %reINFANAT)\b",LOCATION="NA",NORM="INF:POSSIBLE_%normINFdesc(group(2))_group(6)"
 //Differential diagnosis
-RULENAME="cm_sbi9",REGEXP="\beither\b.{0,30}\Wor\W(%reINF)\b",LOCATION="NA",NORM="INF:POSSIBLE"
-RULENAME="cm_sbi10",REGEXP="\beither\b.{0,30}\Wor\W(%reINFdesc)\W\w*\W?(%reINF)\b",LOCATION="NA",NORM="INF:POSSIBLE_%normINFdesc(group(2))"
-RULENAME="cm_sbi11",REGEXP="\beither\b.{0,30}\Wor\W(%reINFdesc)\W\w*\W?(%reINFANAT) (%reINF)\b",LOCATION="NA",NORM="INF:POSSIBLE_%normINFdesc(group(2))_group(4)"
-RULENAME="cm_sbi12",REGEXP="\beither\b.{0,30}\Wor\W(%reINFdesc)\W\w*\W?(%reINF) at( %reINFANAT)\b",LOCATION="NA",NORM="INF:POSSIBLE_%normINFdesc(group(2))_group(6)"
+RULENAME="cm_sbi18",REGEXP="\beither\b.{0,30}\Wor\W(%reINF)\b",LOCATION="NA",NORM="INF:POSSIBLE"
+RULENAME="cm_sbi19",REGEXP="\beither\b.{0,30}\Wor\W(%reINFdesc)\W\w*\W?(%reINF)\b",LOCATION="NA",NORM="INF:POSSIBLE_%normINFdesc(group(2))"
+RULENAME="cm_sbi20",REGEXP="\beither\b.{0,30}\Wor\W(%reINFdesc)\W\w*\W?(%reINFANAT) (%reINF)\b",LOCATION="NA",NORM="INF:POSSIBLE_%normINFdesc(group(2))_group(4)"
+RULENAME="cm_sbi21",REGEXP="\beither\b.{0,30}\Wor\W(%reINFdesc)\W\w*\W?(%reINF) at( %reINFANAT)\b",LOCATION="NA",NORM="INF:POSSIBLE_%normINFdesc(group(2))_group(6)"
 
 //WHITE MATTER
 RULENAME="cm_wmd1",REGEXP="\b(leukoaraiosis|microangiopath\w+)\b",LOCATION="NA",NORM="WMD_LEUK"
 RULENAME="cm_wmd2",REGEXP="\b(signal|hyperinten\w+|hypodens\w+)\b.*\b(white matter)\b",LOCATION="NA",NORM="WMD_WHITE"
-RULENAME="cm_wmd3",REGEXP="\b(white matter)\b.*(signal|hyperinten\w+|hypodens\w+)\b",LOCATION="NA",NORM="WMD_WHITE"
+RULENAME="cm_wmd3",REGEXP="\b(white matter)\b.*(hyperinten\w+|hypodens\w+)\b",LOCATION="NA",NORM="WMD_WHITE"
 RULENAME="cm_wmd4",REGEXP="\b(%reWMDANAT)\W(diseases?|lesions?|changes?|ischemic|ischemia\W?|decompression\W?|leukemic\W?|degenerative\W?)+\b",LOCATION="NA",NORM="WMD"
-RULENAME="cm_wmd5",REGEXP="\b(ischemic\W?|decompression\W?|leukemic\W?|degenerative\W?)+(diseases?|lesions?|changes?)\b",LOCATION="NA",NORM="WMD"
+RULENAME="cm_wmd5",REGEXP="\b(ischemic\W?|decompression\W?|leukemic\W?|degenerative\W?)+(diseases?|lesions?)\b",LOCATION="NA",NORM="WMD"
 RULENAME="cm_wmd9",REGEXP="\b(white matter disease)\b",LOCATION="NA",NORM="WMD_WHITE"
-RULENAME="cm_wmd10",REGEXP="\b(scattered (\S+\s+){0,10}hyperintensities (\S+\s+){0,10}nonspecific)\b",LOCATION="NA",NORM="WMD_WHITE"
-RULENAME="cm_wmd11",REGEXP="\b(white matter (\S+\s+){0,10} changes)\b",LOCATION="NA",NORM="WMD_WHITE"
+RULENAME="cm_wmd10",REGEXP="\b(%reWMDGD) (\S+\s+){0,10}hyperintensities (\S+\s+){0,10}nonspecific\b",LOCATION="NA",NORM="WMD_WHITE_GD:%normWMDGD(group(1))"
+RULENAME="cm_wmd22",REGEXP="\b(%reWMDGD) (\S+\s+){0,8}white matter (\S+\s+){0,4}t2\b",LOCATION="NA",NORM="WMD_WHITE_GD:%normWMDGD(group(1))"
+RULENAME="cm_wmd11",REGEXP="\b(white matter (\S+\s+){0,10}changes)\b",LOCATION="NA",NORM="WMD_WHITE"
 RULENAME="cm_wmd12",REGEXP="\b(nonspecific (\S+\s+){0,6}white matter)\b",LOCATION="NA",NORM="WMD_WHITE"
+
+//RULENAME="cm_wmd13",REGEXP="\b(%reINF)\W(\S+\s+){0,12}(hyperintense|hyperintensity|white matter)\b",LOCATION="NA",NORM="WMD_WHITE"
+RULENAME="cm_wmd14",REGEXP="\bwhite matter\W(\S+\s+){0,5}t2\W(\S+\s+){0,5}hyperintensity\b",LOCATION="NA",NORM="WMD_WHITE"
+RULENAME="cm_wmd15",REGEXP="\b(density|attenuation|abnormally)\W(\S+\s+){0,5}t2\W(\S+\s+){0,5}white matter\b",LOCATION="NA",NORM="WMD_WHITE"
+RULENAME="cm_wmd16",REGEXP="\bt2\W(\S+\s+){0,5}(hyperintense|hyperintensities|hyper intensities)\b",LOCATION="NA",NORM="WMD_WHITE"
+RULENAME="cm_wmd17",REGEXP="\b(%reWMDGD) degree senescent change.+\b",LOCATION="NA",NORM="WMD_WHITE"
+RULENAME="cm_wmd18",REGEXP="\b(%reWMDGD) periventricular\W(\S+\s+){0,3}white matter\b",LOCATION="NA",NORM="WMD_WHITE"
+RULENAME="cm_wmd19",REGEXP="\b(low|decreased|mild)\W(density|attenuation|abnormally)\W(\S+\s+){0,12}white matter\b",LOCATION="NA",NORM="WMD_WHITE"
+RULENAME="cm_wmd20",REGEXP="\b(t2-flair|t2)\W(\S+\s+){0,12}(hyperintensity|white matter|hyperintense)\b",LOCATION="NA",NORM="WMD_WHITE"
+RULENAME="cm_wmd21",REGEXP="\b(%reWMDGD)\W(\S+\s+){0,6}t2\W(\S+\s+){0,12}white matter\b",LOCATION="NA",NORM="WMD_WHITE_GD:%normWMDGD(group(1))"
+//RULENAME="cm_wmd22",REGEXP="\b(%reINFANAT)\Wwhite matter t2\b",LOCATION="NA",NORM="WMD_WHITE"
+RULENAME="cm_wmd23",REGEXP="\b(%reWMDGD)\Wpatchy\W(\S+\s+){0,12}white matter\b",LOCATION="NA",NORM="WMD_WHITE_%normWMDGD(group(1))"
+RULENAME="cm_wmd24",REGEXP="\b(%reWMDGD)\W(\S+\s+){0,3}t2\W(\S+\s+){0,12}(%reINFANAT)\Wwhite matter\b",LOCATION="NA",NORM="WMD_WHITE_GD:%normWMDGD(group(1))"
+//RULENAME="cm_wmd25",REGEXP="\b(%reWMDGD)\W(\S+\s+){0,6}(%reINFANAT)\Wwhite matter\W(\S+\s+){0,6}t2\b",LOCATION="NA",NORM="WMD_WHITE_GD:%normWMDGD(group(1))"
+RULENAME="cm_wmd26",REGEXP="\b(%reWMDGD)\W(\S+\s+){0,6}t2\W(\S+\s+){0,12}hyperintensities\b",LOCATION="NA",NORM="WMD_WHITE_GD:%normWMDGD(group(1))"
+RULENAME="cm_wmd27",REGEXP="\b(%reWMDGD)\W(\S+\s+){0,3}senescent changes\W(\S+\s+){0,12}supratentorial brain\b",LOCATION="NA",NORM="WMD_WHITE_GD:%normWMDGD(group(1))"
+RULENAME="cm_wmd28",REGEXP="\b(small vessel (ischemia|disease|ischemic)|white matter change)\b",LOCATION="NA",NORM="WMD_SV"
+RULENAME="cm_wmd29",REGEXP="\white matter\W(\S+\s+){0,12}small vessel disease\b",LOCATION="NA",NORM="WMD_SV"
+
+//microvascular)(ischemic|leukemic|degenerative|\/| )+(disease|lesion|changes?)?\b",LOCATION="NA",NORM="WMD_group(1)"
 
 //WHITE MATTER GRADING
 RULENAME="cm_wmd6",REGEXP="\b(%reWMDGD)\b",LOCATION="NA",NORM="%normWMDGD(group(1))"
@@ -37,8 +77,8 @@ RULENAME="cm_wmd6",REGEXP="\b(%reWMDGD)\b",LOCATION="NA",NORM="%normWMDGD(group(
 RULENAME="cm_remove1",REGEXP="\b(degenerative changes?).*\bjoints?\b",LOCATION="NA",NORM="REMOVE"
 RULENAME="cm_remove2",REGEXP="\bjoints?.*(degenerative changes?)\b",LOCATION="NA",NORM="REMOVE"
 RULENAME="cm_remove3",REGEXP="\bcarotid(\S+\s+){0,5} infarct\b",LOCATION="NA",NORM="REMOVE"
-RULENAME="cm_remove4",REGEXP="\b(%reDIFF)\b",LOCATION="NA",NORM="REMOVE"
-//RULENAME="cm_remove5",REGEXP="\b(%reDIFF)\b",LOCATION="NA",NORM="REMOVE"
+//RULENAME="cm_remove4",REGEXP="\b(%reDIFF)\b",LOCATION="NA",NORM="REMOVE"
+
 
 //EXCLU
 //RULENAME="sbi13_excl",REGEXP="\b(%reDIFF)\b",LOCATION="NA",NORM="EXCLUSION_INF_GENERAL"

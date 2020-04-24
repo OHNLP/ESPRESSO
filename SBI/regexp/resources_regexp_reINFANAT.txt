@@ -5,17 +5,17 @@ cerebellar
 cortical
 frontal
 caudate
-right frontoparietal lobe
-right frontal cortical
-right frontal lobe
+frontoparietal lobe
+frontal cortical
+frontal lobe
 embolic
-left basal ganglia lacunar
+basal ganglia lacunar
 basal ganglia lacunar
 basal ganglia
-left caudate and left putamen lacunar
-left parietal lobe
+caudate and left putamen lacunar
+parietal lobe
 brachium pontis
-right frontal periventricular
+frontal periventricular
 lateral right thalamus
 frontal parasagittal
 lentiform nucleus
@@ -23,3 +23,9 @@ basilar ganglia
 thalamic region
 occipital lobe.+
 cerebral hemispheres
+parasagittal brain stem
+subcortical
+periventricular
+temporal region
+lentiform nucleus
+occipital

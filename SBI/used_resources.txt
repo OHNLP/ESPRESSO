@@ -5,6 +5,7 @@
 ./regexp/resources_regexp_reINFdesc.txt
 ./regexp/resources_regexp_reWMDGD.txt
 ./regexp/resources_regexp_reDIFF.txt
+./regexp/resources_regexp_reDIFFU.txt
 ./norm/resources_norm_normINFdesc.txt
 ./norm/resources_norm_normWMDGD.txt
 ./used_resources.txt
