@@ -1,0 +1,57 @@
+precentral gyrus	cortical_juxtacortical	frontal
+frontal cortical	cortical_juxtacortical	frontal
+post central gyrus	cortical_juxtacortical	parietal
+gyrus	cortical_juxtacortical	null
+cortical	cortical_juxtacortical	null
+juxtacortical	cortical_juxtacortical	null
+embolic	cortical_juxtacortical	null
+basal ganglia	lacunar_subcortical	basal ganglia
+basilar ganglia	lacunar_subcortical	basal ganglia
+lentiform nucleus	lacunar_subcortical	basal ganglia
+brainstem	lacunar_subcortical	brainstem
+dorsal lateral medulla	lacunar_subcortical	brainstem
+dorsolateral medulla	lacunar_subcortical	brainstem
+brain stem	lacunar_subcortical	brainstem
+pons	lacunar_subcortical	brainstem
+brachium pontis	lacunar_subcortical	brainstem
+caudate	lacunar_subcortical	caudate
+corona radiata extending into the anterior limb of the internal capsule	lacunar_subcortical	frontal
+frontal periventricular	lacunar_subcortical	frontal
+internal capsule	lacunar_subcortical	frontal
+external capsule	lacunar_subcortical	frontal
+lacunar	lacunar_subcortical	null
+subcortical	lacunar_subcortical	null
+lacune	lacunar_subcortical	null
+lunar	lacunar_subcortical	null
+periventricular	lacunar_subcortical	null
+periatrial	lacunar_subcortical	null
+periventricular	lacunar_subcortical	null
+cerebellar	null	cerebellum
+cerebellum	null	cerebellum
+frontal	null	frontal
+frontal lobe	null	frontal
+frontal parasagittal	null	frontal
+frontoparietal lobe	null	frontal
+insular	cortical_juxtacortical	insular
+occipital	null	occipital
+parietal	null	parietal
+parietal lobe	null	parietal
+pons	lacunar_subcortical	pons
+putamen	lacunar_subcortical	putamen
+temporal	null	temporal
+temporal region	null	temporal
+lateral right thalamus	lacunar_subcortical	thalamus
+thalamic region	lacunar_subcortical	thalamus
+thalamus	lacunar_subcortical	thalamus
+thalamocapsular junction	lacunar_subcortical	thalamus
+thalamus_posterior	lacunar_subcortical	thalamus
+thalami	lacunar_subcortical	thalamus
+anterior limb of the internal capsule	lacunar_subcortical	null
+opercular	cortical_juxtacortical	null
+operculum	cortical_juxtacortical	null
+thalamic	lacunar_subcortical	null
+basal ganglia	lacunar_subcortical	null
+brachium pontis	lacunar_subcortical	null
+high left frontal parasagittal white matter	cortical_juxtacortical	null
+corona radiata	lacunar_subcortical	null
+genu of the corpus callosum	lacunar_subcortical	null

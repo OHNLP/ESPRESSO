@@ -1,3 +1,4 @@
 leukoaraiosis
+leukoariosis
 white matter
 (small.?vessel|microvascular) (diseases?|changes?)

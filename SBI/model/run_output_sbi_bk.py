@@ -24,14 +24,6 @@ def rad_parser(line):
 	line = line_str
 	return line
 
-def sent_parser(line):
-	line = ' '+line+' '
-	line = re.sub(r"[^A-Za-z0-9]", " ", line)
-	line = line.replace('\t', ' ')
-	line = re.sub(' +', ' ', line)
-	return line.lower()
-
-
 def read_txt(indir):
 	f = open(indir,'r')
 	txt = f.read()
@@ -87,51 +79,6 @@ def get_remove(l, deli):
 				r[key] = 1
 	return r
 		
-def apply_sbi_location(sent):
-	elist = read_txt('SBI/regexp/resources_regexp_reINFLocation.txt')
-	outnorm1,outnorm2 = '',''
-	for k in elist:
-		term = k.split('\t')[0]
-		norm1 = k.split('\t')[1]
-		norm2 = k.split('\t')[2]
-		term = ' '+term+' '
-		sent = sent_parser(sent)
-		# print(term, sent)
-		if term in sent:
-			if norm1 != 'null':
-				outnorm1 = norm1
-			if norm2 != 'null':
-				outnorm2 = norm2
-			# print(term, outnorm1, outnorm2)
-	return outnorm1, outnorm2
-
-def apply_wmd_gd(sent):
-	elist = read_txt('SBI/norm/resources_norm_normWMDGD.txt')
-	exc = read_txt('SBI/regexp/resources_regexp_reWMDDGEXL.txt')
-	secondary_list = [' multifocal ', ' several ']
-	outgd = 0
-	priority = 1
-	sent = sent.split('\"')[1]
-	for k in elist:
-		term = k.split('\t')[0]
-		norm1 = int(k.split('\t')[1])
-		term = ' '+term+' '
-		sent = sent_parser(sent)
-		notexc = True		
-		for e in exc:
-			if term.strip() == e:
-				notexc = False	
-		# print (notexc, [term], [sent])
-		if notexc and term in sent:
-			# print(term, sent)
-			if term in secondary_list and outgd ==0:
-				outgd = norm1
-			elif term not in secondary_list:
-				outgd = norm1
-	# print(outgd, sent)
-	return outgd
-
-
 def run_eval_sbi(indir, outdir, sys):
 	if sys == '0':
 		deli = '/'
@@ -146,12 +93,9 @@ def run_eval_sbi(indir, outdir, sys):
 		spamwriter = csv.writer(csvfile, delimiter='|')
 		for d in l:
 			fname = d.split(deli)[-1]
-			WMD_GD_T, temp_priority = 0, 0
 			SBI_STATUS, WMD_STATUS, WMD_GD = '','',''
 			SBI_STATUS_LIST = []
 			ann_list = read_file_list(d,'\t')
-			SBI_LOCATION1 = []
-			SBI_L1, SBI_L2 = '',''
 			for row in ann_list:
 				rm_term = fname+row[-2]
 				certainty = row[6]
@@ -179,12 +123,10 @@ def run_eval_sbi(indir, outdir, sys):
 					if ps:
 						SBI_STATUS_LIST += ['SBI_FOUND']
 				if ('Positive' in certainty):
-					if ('NONACUTE' in norm or 'INF_GENERAL' in norm or 'ACUTE' in norm) and ('POSSIBLE' not in norm):
+					if ('NONACUTE' in norm or 'INF_GENERAL' in norm or 'ACUTE' in norm):
 						ns = apply_negative_screen(sent)
 						if ns:
 							SBI_STATUS_LIST += ['SBI_FOUND']
-							SBI_L1, SBI_L2 = apply_sbi_location(sent)
-							SBI_LOCATION1 += [SBI_L1]
 						# else:
 						# 	SBI_STATUS_LIST += ['SBI_INDETERMINATE']
 				if ('Negated' not in certainty):							
@@ -192,34 +134,19 @@ def run_eval_sbi(indir, outdir, sys):
 						exl = apply_exclusion_wmd(sent)
 						if not exl and rm_term not in rm:
 							WMD_STATUS = 'WMD_FOUND'
-							temp_priority = apply_wmd_gd(sent)
-							if temp_priority > WMD_GD_T:
-								WMD_GD_T = temp_priority
-				
-				# if SBI_STATUS_LIST!= [] and SBI_STATUS_LIST[-1] == 'SBI_FOUND':
-
-
 			if 'SBI_FOUND' in SBI_STATUS_LIST:
 				SBI_STATUS = 'SBI_FOUND'
-				if 'cortical_juxtacortical' in SBI_LOCATION1 and 'lacunar_subcortical' in SBI_LOCATION1:
-					SBI_L1 = 'both'
-				elif 'cortical_juxtacortical' in SBI_LOCATION1:
-					SBI_L1 = 'cortical_juxtacortical'
-				elif 'lacunar_subcortical' in SBI_LOCATION1:
-					SBI_L1 = 'lacunar_subcortical'
-				else:
-					SBI_L1 = ''
-				
-			if WMD_GD_T == 3:
-				WMD_GD = 'SEVERE'
-			elif WMD_GD_T == 2:
-				WMD_GD = 'MODERATE'		
-			elif WMD_GD_T == 1:
-				WMD_GD = 'MILD'		
-			elif WMD_GD_T == 0:
-				WMD_GD = ''
-
-			spamwriter.writerow([fname, SBI_STATUS, SBI_L1, SBI_L2, WMD_STATUS, WMD_GD])
+			# elif 'SBI_INDETERMINATE' in SBI_STATUS_LIST:
+			# 	SBI_STATUS = 'SBI_INDETERMINATE'
+			for row in ann_list:
+				if WMD_STATUS == 'WMD_FOUND':
+					if 'SEVERE' in norm:
+						WMD_GD = 'SEVERE'
+					if 'MODERATE' in norm:
+						WMD_GD = 'MODERATE'
+					if 'MILD' in norm:
+						WMD_GD = 'MILD'
+			spamwriter.writerow([fname, SBI_STATUS, WMD_STATUS, WMD_GD])
 
 def main():
 	args = sys.argv[1:]

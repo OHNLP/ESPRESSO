@@ -72,7 +72,6 @@ RULENAME="cm_wmd27",REGEXP="\b(%reWMDGD)\W(\S+\s+){0,3}senescent changes\W(\S+\s
 RULENAME="cm_wmd28",REGEXP="\b(small vessel (ischemia|disease|ischemic)|white matter change)\b",LOCATION="NA",NORM="WMD_SV"
 RULENAME="cm_wmd29",REGEXP="\white matter\W(\S+\s+){0,12}small vessel disease\b",LOCATION="NA",NORM="WMD_SV"
 RULENAME="cm_wmd30",REGEXP="(%reWMDGD)\W(\S+\s+){0,4}(%reWMD)",LOCATION="NA",NORM="WMD_LEUK"
-RULENAME="cm_wmd31",REGEXP="minimal chronic ischemic\W(\S+\s+){0,10}white matter",LOCATION="NA",NORM="WMD_WHITE"
 
 //microvascular)(ischemic|leukemic|degenerative|\/| )+(disease|lesion|changes?)?\b",LOCATION="NA",NORM="WMD_group(1)"
 

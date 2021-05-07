@@ -1,10 +1,14 @@
-mild
+tiny
+slight
+low
+small foci
 mildly
+mild
 few
 scattered
-low
 minimal
 several
+multifocal
 multiple
 moderate
 extensive
